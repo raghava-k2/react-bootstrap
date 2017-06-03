@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import ClientList from '../components/ClientList'
+import { fetchResults } from '../actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -8,6 +9,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
+        search: (searchValue) => {
+            dispatch(fetchResults(searchValue))
+        }
     }
 }
 

@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
-let ClientList = ({ clientArray }) => {
+import './ClientList.css'
+let ClientList = ({ clientArray, search }) => {
     return (
-        <div>
+        <div className='listContainer'>
             <ListGroup > {
-                clientArray.map(obj =>
-                    <ListGroupItem>{obj.clientId}</ListGroupItem>
+                clientArray.map((obj, i) =>
+                    <ListGroupItem onClick={
+                        e => {
+                            e.preventDefault()
+                            search(e.target.innerText)
+                        }
+                    } key={i}>{obj.clientId}</ListGroupItem>
                 )
             }
             </ListGroup>
@@ -17,6 +23,7 @@ ClientList.propTypes = {
     clientArray: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         clientId: PropTypes.string.isRequired
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+    search: PropTypes.func.isRequired
 }
 export default ClientList
