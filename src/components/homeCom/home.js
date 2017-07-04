@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
+import {Route} from 'react-router'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -9,8 +10,11 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import AppBar from 'material-ui/AppBar';
 import Menu from '../../containers/menuCon/MenuContainer'
+import Scheduler from '../../containers/schedulerCon/SchedulerContainer'
+
 class Home extends Component {
      static propTypes = {
+       match: PropTypes.object.isRequired,
        homePageData:PropTypes.object.isRequired,
        showMenuDrawer:PropTypes.func.isRequired
     }
@@ -33,12 +37,14 @@ class Home extends Component {
                         iconElementRight={< Logged />}
                         onLeftIconButtonTouchTap={this.showMenu}>
                         <Menu show={this.props.homePageData.show}/>
+                        <Route path={`${this.props.match.url}/scheduler`} component={Scheduler}/>
                     </AppBar>
                 </MuiThemeProvider>
             </div>
         )
     }
 }
+
 const Logged = (props) => (
     <IconMenu
         {...props}
