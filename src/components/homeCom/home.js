@@ -8,6 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import AppBar from 'material-ui/AppBar';
 import Menu from '../../containers/menuCon/MenuContainer'
 import Scheduler from '../../containers/schedulerCon/SchedulerContainer'
+import Footer from '../../components/footerCom/Footer'
 
 class Home extends Component {
     static propTypes = {
@@ -31,10 +32,10 @@ class Home extends Component {
                 <AppBar
                     title="GLI"
                     iconElementRight={< Logged />}
-                    onLeftIconButtonTouchTap={this.showMenu}
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"/>
+                    onLeftIconButtonTouchTap={this.showMenu}/>
                 <Menu show={this.props.homePageData.show} />
                 <Route path={`${this.props.match.url}/scheduler`} component={Scheduler} />
+                <Footer />
             </div>
         )
     }
