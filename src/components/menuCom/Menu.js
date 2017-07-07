@@ -35,7 +35,7 @@ export default class Menu extends Component {
                     </MenuItem>
                     <MenuItem onTouchTap={this.handleClose}>
                         <Link to={`${this.props.match.url}/scheduler`}>
-                            Rendering with React
+                            Scheduler
                         </Link>
                     </MenuItem>
                 </Drawer>

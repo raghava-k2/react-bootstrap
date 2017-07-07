@@ -1,10 +1,10 @@
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import {showDialog} from '../../actions'
-import Scheduler from '../../components/schedulerCom/Scheduler'
+import CreateJob from '../../components/schedulerCom/CreateJob'
 
 const mapStateToProps = (state) => {
-    return {createJobData: state.jobReducer}
+    return {}
 }
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -14,5 +14,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const SchedulerContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(Scheduler))
-export default SchedulerContainer
+const CreateJobContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateJob))
+export default CreateJobContainer
