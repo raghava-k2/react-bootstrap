@@ -44,7 +44,7 @@ class Home extends Component {
 const Logged = (props) => (
     <IconMenu
         {...props}
-        iconButtonElement={< IconButton > <MoreVertIcon /> < /IconButton>}
+        iconButtonElement={<IconButton> <MoreVertIcon /> </IconButton>}
         targetOrigin={{
                 horizontal: 'right',
                 vertical: 'top'

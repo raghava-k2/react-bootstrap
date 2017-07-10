@@ -5,3 +5,7 @@ export const showMenu = (show) => {
 export const showDialog = (show) => {
   return {type: 'SHOW_DIALOG', show}
 }
+
+export const jobDetails = (type, value) => {
+  return {type, value}
+}

@@ -9,7 +9,7 @@ import {
     TableRowColumn
 } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
+import {Label} from 'react-bootstrap'
 import CreateJob from '../../containers/schedulerCon/CreateJobContainer'
 
 class Scheduler extends Component {
@@ -25,7 +25,8 @@ class Scheduler extends Component {
             .bind(this)
     }
 
-    handleDialog() {
+    handleDialog(e) {
+        e.preventDefault()
         this
             .props
             .showCreateJobDialog(true)
@@ -35,47 +36,30 @@ class Scheduler extends Component {
         return (
             <div className='scheduler'>
                 <Paper zDepth={1}>
-                    <h1>Daliy Scheduler</h1>
+                    <Label>Job Scheduler/Monitor</Label>
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHeaderColumn>ID</TableHeaderColumn>
-                                <TableHeaderColumn>Name</TableHeaderColumn>
+                                <TableHeaderColumn>Job</TableHeaderColumn>
+                                <TableHeaderColumn>GroupName</TableHeaderColumn>
+                                <TableHeaderColumn>StartDate</TableHeaderColumn>
                                 <TableHeaderColumn>Status</TableHeaderColumn>
-                                <TableHeaderColumn>Action</TableHeaderColumn>
+                                <TableHeaderColumn>UserName</TableHeaderColumn>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            <TableRow>
-                                <TableRowColumn>1</TableRowColumn>
-                                <TableRowColumn>John Smith</TableRowColumn>
-                                <TableRowColumn>Employed</TableRowColumn>
-                                <TableRowColumn><RaisedButton label="Update" onTouchTap={this.handleDialog}/></TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>2</TableRowColumn>
-                                <TableRowColumn>Randal White</TableRowColumn>
-                                <TableRowColumn>Unemployed</TableRowColumn>
-                                <TableRowColumn><RaisedButton label="Update" onTouchTap={this.handleDialog}/></TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>3</TableRowColumn>
-                                <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                                <TableRowColumn>Employed</TableRowColumn>
-                                <TableRowColumn><RaisedButton label="Update" onTouchTap={this.handleDialog}/></TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>4</TableRowColumn>
-                                <TableRowColumn>Steve Brown</TableRowColumn>
-                                <TableRowColumn>Employed</TableRowColumn>
-                                <TableRowColumn><RaisedButton label="Update" onTouchTap={this.handleDialog}/></TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>5</TableRowColumn>
-                                <TableRowColumn>Christopher Nolan</TableRowColumn>
-                                <TableRowColumn>Unemployed</TableRowColumn>
-                                <TableRowColumn><RaisedButton label="Update" onTouchTap={this.handleDialog}/></TableRowColumn>
-                            </TableRow>
+                            {[1, 2, 3, 4, 5].map((obj, i) => { 
+                                return (
+                                    <TableRow> 
+                                        <TableRowColumn><a href='' onClick={this.handleDialog}>{obj}</a></TableRowColumn> 
+                                        <TableRowColumn> group{obj} </TableRowColumn>
+                                        <TableRowColumn>{new Date().toLocaleDateString()}</TableRowColumn>
+                                        <TableRowColumn>status{obj}</TableRowColumn>
+                                        <TableRowColumn>username{obj}</TableRowColumn>
+                                   </TableRow>
+                                )
+                            })}
+
                         </TableBody>
                     </Table>
                 </Paper>
