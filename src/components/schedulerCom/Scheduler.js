@@ -9,6 +9,12 @@ import {
     TableRowColumn
 } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import ContentRemove from 'material-ui/svg-icons/content/remove';
 import {Label} from 'react-bootstrap'
 import CreateJob from '../../containers/schedulerCon/CreateJobContainer'
 
@@ -37,6 +43,45 @@ class Scheduler extends Component {
             <div className='scheduler'>
                 <Paper zDepth={1}>
                     <Label>Job Scheduler/Monitor</Label>
+                    <Paper zDepth={1}>
+                        <TextField
+                            hintText="UserName"
+                            style={{
+                            display: 'inline-block'
+                        }}
+                            underlineShow={false}/>
+                        <TextField
+                            hintText="GroupName"
+                            style={{
+                            display: 'inline-block'
+                        }}
+                            underlineShow={false}/>
+                        <TextField
+                            hintText="JobName"
+                            style={{
+                            display: 'inline-block'
+                        }}
+                            underlineShow={false}/>
+                        <TextField
+                            hintText="Status"
+                            style={{
+                            display: 'inline-block'
+                        }}
+                            underlineShow={false}/>
+                        <RaisedButton
+                            label="Search"
+                            primary={true}
+                            style={{
+                            display: 'inline-block'
+                        }}/>
+                        <Divider/>
+                        <FloatingActionButton mini={true}>
+                            <ContentAdd/>
+                        </FloatingActionButton>
+                        <FloatingActionButton mini={true}>
+                            <ContentRemove/>
+                        </FloatingActionButton>
+                    </Paper>
                     <Table>
                         <TableHeader>
                             <TableRow>
@@ -48,15 +93,19 @@ class Scheduler extends Component {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {[1, 2, 3, 4, 5].map((obj, i) => { 
+                            {[1, 2, 3, 4, 5].map((obj, i) => {
                                 return (
-                                    <TableRow key={obj}> 
-                                        <TableRowColumn><a href='' onClick={this.handleDialog}>{obj}</a></TableRowColumn> 
-                                        <TableRowColumn> group{obj} </TableRowColumn>
+                                    <TableRow key={obj}>
+                                        <TableRowColumn>
+                                            <a href='' onClick={this.handleDialog}>{obj}</a>
+                                        </TableRowColumn>
+                                        <TableRowColumn>
+                                            group{obj}
+                                        </TableRowColumn>
                                         <TableRowColumn>{new Date().toLocaleDateString()}</TableRowColumn>
                                         <TableRowColumn>status{obj}</TableRowColumn>
                                         <TableRowColumn>username{obj}</TableRowColumn>
-                                   </TableRow>
+                                    </TableRow>
                                 )
                             })}
 
