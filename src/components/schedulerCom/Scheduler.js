@@ -50,7 +50,7 @@ class Scheduler extends Component {
                         <TableBody>
                             {[1, 2, 3, 4, 5].map((obj, i) => { 
                                 return (
-                                    <TableRow> 
+                                    <TableRow key={obj}> 
                                         <TableRowColumn><a href='' onClick={this.handleDialog}>{obj}</a></TableRowColumn> 
                                         <TableRowColumn> group{obj} </TableRowColumn>
                                         <TableRowColumn>{new Date().toLocaleDateString()}</TableRowColumn>

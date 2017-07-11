@@ -11,8 +11,8 @@ const mapDispatchToProps = (dispatch) => {
         showCreateJobDialog: (status) => {
             dispatch(showDialog(status))
         },
-        addJobDetails: (type, value) => {
-            dispatch(jobDetails(type, value))
+        addJobDetails: (type, value, day) => {
+            dispatch(jobDetails(type, value, day))
         }
     }
 }

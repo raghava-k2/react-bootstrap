@@ -6,6 +6,6 @@ export const showDialog = (show) => {
   return {type: 'SHOW_DIALOG', show}
 }
 
-export const jobDetails = (type, value) => {
-  return {type, value}
+export const jobDetails = (type, value,day) => {
+  return {type, value,day}
 }
