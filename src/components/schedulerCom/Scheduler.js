@@ -29,6 +29,12 @@ class Scheduler extends Component {
         this.handleDialog = this
             .handleDialog
             .bind(this)
+        this.handleSubmit = this
+            .handleSubmit
+            .bind(this)
+        this.addSearchValues = this
+            .addSearchValues
+            .bind(this)
     }
 
     handleDialog(e) {
@@ -36,6 +42,13 @@ class Scheduler extends Component {
         this
             .props
             .showCreateJobDialog(true)
+    }
+    handleSubmit(e) {
+        console.log(this)
+    }
+
+    addSearchValues(data) {
+        Object.assign(this, data)
     }
 
     render() {
@@ -49,28 +62,33 @@ class Scheduler extends Component {
                             style={{
                             display: 'inline-block'
                         }}
-                            underlineShow={false}/>
+                            underlineShow={false}
+                            onChange={(e, v) => this.addSearchValues({'userName': v})}/>
                         <TextField
                             hintText="GroupName"
                             style={{
                             display: 'inline-block'
                         }}
-                            underlineShow={false}/>
+                            underlineShow={false}
+                            onChange={(e, v) => this.addSearchValues({'grpName': v})}/>
                         <TextField
                             hintText="JobName"
                             style={{
                             display: 'inline-block'
                         }}
-                            underlineShow={false}/>
+                            underlineShow={false}
+                            onChange={(e, v) => this.addSearchValues({'jobName': v})}/>
                         <TextField
                             hintText="Status"
                             style={{
                             display: 'inline-block'
                         }}
-                            underlineShow={false}/>
+                            underlineShow={false}
+                            onChange={(e, v) => this.addSearchValues({'status': v})}/>
                         <RaisedButton
                             label="Search"
                             primary={true}
+                            onTouchTap={this.handleSubmit}
                             style={{
                             display: 'inline-block'
                         }}/>
