@@ -22,8 +22,10 @@ export const jobReducer = (state = {
 export const jobDetailsReducer = (state = {
     jobName: '',
     jobGrpName: '',
-    startDate: new Date(),
-    endDate: new Date(),
+    startDate: null,
+    startTime: null,
+    endDate: null,
+    endTime: null,
     fileSpec: '',
     mapName: '',
     payroll: '',
@@ -47,8 +49,12 @@ export const jobDetailsReducer = (state = {
             return Object.assign({}, state, {jobGrpName: action.value})
         case 'ADD_START_DATE_DETAILS':
             return Object.assign({}, state, {startDate: action.value})
+        case 'ADD_START_TIME_DETAILS':
+            return Object.assign({}, state, {startTime: action.value})
         case 'ADD_END_DATE_DETAILS':
             return Object.assign({}, state, {endDate: action.value})
+        case 'ADD_END_TIME_DETAILS':
+            return Object.assign({}, state, {endTime: action.value})
         case 'ADD_FILE_SPEC_DETAILS':
             return Object.assign({}, state, {fileSpec: action.value})
         case 'ADD_MAP_DETAILS':

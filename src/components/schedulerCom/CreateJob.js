@@ -11,6 +11,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import DatePicker from 'material-ui/DatePicker';
+import TimePicker from 'material-ui/TimePicker';
 import './createJob.css'
 
 export default class CreateJob extends Component {
@@ -110,8 +111,16 @@ export default class CreateJob extends Component {
                                             formatDate={(d) => d.toLocaleDateString()}
                                             onChange={(e, v) => this.handleChange('ADD_START_DATE_DETAILS', v)}
                                             value={this.props.jobDetails.startDate}/>
+                                        <TimePicker
+                                            hintText="StartTime"
+                                            autoOk={true}
+                                            onChange={(e, v) => this.handleChange('ADD_START_TIME_DETAILS', v)}
+                                            value={this.props.jobDetails.startTime}
+                                            style={{
+                                            display: 'inline-block'
+                                        }}/>
                                         <DatePicker
-                                            hintText="EndDateDate"
+                                            hintText="EndDate"
                                             container="inline"
                                             style={{
                                             display: 'inline-block'
@@ -119,7 +128,14 @@ export default class CreateJob extends Component {
                                             formatDate={(d) => d.toLocaleDateString()}
                                             onChange={(e, v) => this.handleChange('ADD_END_DATE_DETAILS', v)}
                                             value={this.props.jobDetails.endDate}/>
-
+                                        <TimePicker
+                                            hintText="EndTime"
+                                            autoOk={true}
+                                            onChange={(e, v) => this.handleChange('ADD_END_TIME_DETAILS', v)}
+                                            value={this.props.jobDetails.endTime}
+                                            style={{
+                                            display: 'inline-block'
+                                        }}/>
                                     </List>
                                 </section>
                             </Tab>

@@ -12,11 +12,9 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
 import {Label} from 'react-bootstrap'
 import CreateJob from '../../containers/schedulerCon/CreateJobContainer'
+import './scheduler.css'
 
 class Scheduler extends Component {
     static propTypes = {
@@ -93,13 +91,15 @@ class Scheduler extends Component {
                             display: 'inline-block'
                         }}/>
                         <Divider/>
-                        <FloatingActionButton mini={true}>
-                            <ContentAdd/>
-                        </FloatingActionButton>
-                        <FloatingActionButton mini={true}>
-                            <ContentRemove/>
-                        </FloatingActionButton>
                     </Paper>
+                    <section
+                        style={{
+                        marginLeft: '20px',
+                        marginTop: '10px'
+                    }}>
+                        <div className='customadd'>+</div>
+                        <div className='customremove'>-</div>
+                    </section>
                     <Table>
                         <TableHeader>
                             <TableRow>
