@@ -1,6 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, Switch } from 'react-router'
+import {
+    BrowserRouter as Router,
+    Route
+} from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import Main from './Main'
 import Home from '../containers/homeCon/HomeContainer'
@@ -13,10 +16,10 @@ const Root = ({ store }) => (
     <Provider store={store}>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
             <Router history={history}>
-                <Switch>
+                <div className='routers'>
                     <Route exact path="/" component={Main} />
                     <Route path="/home" component={Home} />
-                </Switch>
+                </div>
             </Router>
         </MuiThemeProvider>
     </Provider>
